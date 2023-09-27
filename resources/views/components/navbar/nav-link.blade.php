@@ -2,7 +2,7 @@
 
 <a {{ $attributes->class([
   'nav-link',
-  'px-0'
+  'px-0',
 ])->merge([
   'href' => "{$url}",
   'title' => "{$title}",
