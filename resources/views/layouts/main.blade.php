@@ -17,16 +17,20 @@
       }
     </style>
   </head>
-  <body >
-    <div class="page">
-      <!-- Navbar -->
+  <x-page.body>
+    <x-page.page>
+      @auth
       @include('includes.header')
       @include('includes.admin.main-menu')
-      <div class="page-wrapper">
-        @yield('content')
-        @include('includes.footer')
-      </div>
-    </div>
+        <x-page.wrapper>
+          @yield('content')
+          @include('includes.footer')
+        </x-page.wrapper>
+      @endauth
+      @guest
+        @yield('guest_content')
+      @endguest
+    </x-page.page>
     @vite('resources/js/app.js')
-  </body>
+  </x-page.body>
 </html>

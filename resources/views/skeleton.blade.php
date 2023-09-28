@@ -15,7 +15,13 @@
   
   <!-- Page body -->
   <div class="page-body">
-    <div class="container-xl">      
+    <div class="container-xl">
+      @auth
+        авторизован
+      @endauth
+      @guest
+        гость
+      @endguest
     </div>
   </div>
 @endsection
