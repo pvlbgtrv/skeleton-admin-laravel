@@ -17,12 +17,14 @@ class LoginController extends Controller
         $remember = $request->get('remember');
 
         if (Auth::attempt($data, $remember)) {
+            flash('Вход успешно выполнен', 'success');
             return redirect()->intended(route('dashboard'));
         }
     }
 
     public function logout() {
         Auth::logout();
+        flash('Выход успешно выполнен', 'success');
         return redirect()->route('auth.login');
     }
 }

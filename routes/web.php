@@ -15,6 +15,10 @@ use App\Http\Controllers\LoginController;
 |
 */
 
+Route::get('foo', function () {
+    return foo();
+});
+
 Route::get('/', function () {
     return view('skeleton');
 })->middleware(['auth'])->name('dashboard');

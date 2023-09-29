@@ -5203,7 +5203,7 @@ body[data-bs-theme=dark] .navbar[data-bs-theme=light] {
   --tblr-alert-bg: transparent;
   --tblr-alert-padding-x: 1rem;
   --tblr-alert-padding-y: 0.75rem;
-  --tblr-alert-margin-bottom: 1rem;
+  /* --tblr-alert-margin-bottom: 1rem; */
   --tblr-alert-color: inherit;
   --tblr-alert-border-color: transparent;
   --tblr-alert-border: var(--tblr-border-width) solid var(--tblr-alert-border-color);

@@ -20,8 +20,9 @@
   <x-page.body>
     <x-page.page>
       @auth
-      @include('includes.header')
-      @include('includes.admin.main-menu')
+        @include('includes.header')
+        @include('includes.admin.main-menu')
+        <x-alert.alert />
         <x-page.wrapper>
           @yield('content')
           @include('includes.footer')

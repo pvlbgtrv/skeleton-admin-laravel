@@ -1,5 +1,6 @@
 @extends('layouts.main')
 @section('guest_content')
+<x-alert.alert />
 <x-auth.container>
   <div class="text-center mb-4">
     <x-navbar.logo />
