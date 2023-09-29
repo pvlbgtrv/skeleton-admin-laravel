@@ -13,6 +13,10 @@ if (!function_exists('flash')) {
 if (!function_exists('active_link')) {
     function active_link(string $name, string $class = 'active'): string|null
     {
+        if (is_string($name)) {
+            $name = [$name];
+        }
+        
         return Route::is($name) ? $class : null;
     }
 }
