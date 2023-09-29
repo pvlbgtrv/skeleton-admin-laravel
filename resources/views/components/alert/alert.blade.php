@@ -3,9 +3,9 @@
     <div class="d-flex container-xl">
       <div>
         @if(session('type') === 'success')
-          @svg('i-check', 'icon alert-icon')
+          @svg('i-check', 'alert-icon')
         @elseif(session('type') === 'danger')
-          @svg('i-info-circle', 'icon alert-icon')
+          @svg('i-info-circle', 'alert-icon')
         @endif
       </div>
       <div>{{ session('message') }}</div>

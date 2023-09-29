@@ -3,16 +3,16 @@
     <x-main-menu.navbar>
       <x-container>
         <x-main-menu.list>
-          <x-main-menu.nav-item>
-            <x-main-menu.nav-link url="/">
-              <x-main-menu.nav-link-icon icon="i-home" classes="icon" />
+          <x-main-menu.nav-item route="dashboard*">
+            <x-main-menu.nav-link url=" {{ route('dashboard') }}">
+              <x-main-menu.nav-link-icon icon="i-home" />
               <x-main-menu.nav-link-title>{{ __('Главная') }}</x-main-menu.nav-link-title>
             </x-main-menu.nav-link>
           </x-main-menu.nav-item>
 
           <x-main-menu.nav-item-dropdown>
             <x-main-menu.nav-link-dropdown>
-              <x-main-menu.nav-link-icon icon="i-package" classes="icon" />
+              <x-main-menu.nav-link-icon icon="i-package" />
               <x-main-menu.nav-link-title>{{ __('Подразделения') }}</x-main-menu.nav-link-title>
             </x-main-menu.nav-link-dropdown>
             <x-main-menu.dropdown-menu>

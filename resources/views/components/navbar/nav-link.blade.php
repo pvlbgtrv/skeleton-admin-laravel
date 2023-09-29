@@ -9,5 +9,5 @@
   'data-bs-toggle' => 'tooltip',
   'data-bs-placement' => 'bottom',
 ]) }} >
-  @svg($icon, 'icon')
+  @svg($icon)
 </a>
