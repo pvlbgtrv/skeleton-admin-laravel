@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +20,20 @@ Route::get('/', function () {
     return view('skeleton');
 })->middleware(['auth'])->name('dashboard');
 
-Route::prefix('auth')->group(function () {
+Route::group(['prefix' => 'auth'], function () {
     Route::get('login', [LoginController::class, 'index'])->middleware(['guest'])->name('auth.index');
     Route::post('login', [LoginController::class, 'login'])->middleware(['guest'])->name('auth.login');
     Route::get('logout', [LoginController::class, 'logout'])->middleware(['auth'])->name('auth.logout');
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
+    Route::get('/create', [UserController::class, 'create'])->name('users.create');
+    Route::get('/branch_admins', [UserController::class, 'branch_admins'])->name('users.branch_admins');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/private', function () {
+        dd(auth()->user());
         return 'private';
     })->name('private');
 });

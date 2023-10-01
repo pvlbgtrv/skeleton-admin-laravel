@@ -1,27 +1,14 @@
 @extends('layouts.main')
 @section('content')
-  <!-- Page header -->
-  <div class="page-header d-print-none">
-    <div class="container-xl">
-      <div class="row g-2 align-items-center">
-        <div class="col">
-          <h2 class="page-title">
-            Empty page
-          </h2>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Page body -->
-  <div class="page-body">
-    <div class="container-xl">
-      @auth
-        авторизован
-      @endauth
-      @guest
-        гость
-      @endguest
-    </div>
-  </div>
+  <x-page.page-header>
+    <x-page.pretitle>
+      {{ __('Overview') }}
+    </x-page.pretitle>
+    <x-page.title>
+      {{ __('Dashboard') }}
+    </x-page.title>
+  </x-page.page-header>
+  <x-page.page-body>
+    Skeleton page
+  </x-page.page-body>
 @endsection

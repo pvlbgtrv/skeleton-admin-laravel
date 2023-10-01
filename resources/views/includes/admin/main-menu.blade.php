@@ -12,13 +12,25 @@
 
           <x-main-menu.nav-item-dropdown>
             <x-main-menu.nav-link-dropdown>
-              <x-main-menu.nav-link-icon icon="i-package" />
+              <x-main-menu.nav-link-icon icon="i-brand-office" />
               <x-main-menu.nav-link-title>{{ __('Подразделения') }}</x-main-menu.nav-link-title>
             </x-main-menu.nav-link-dropdown>
             <x-main-menu.dropdown-menu>
               <x-main-menu.dropdown-item url="/">{{ __('Alerts') }}</x-main-menu.dropdown-item>
             </x-main-menu.dropdown-menu>
           </x-main-menu.nav-item-dropdown>
+
+          <x-main-menu.nav-item-dropdown>
+            <x-main-menu.nav-link-dropdown>
+              <x-main-menu.nav-link-icon icon="i-users" />
+              <x-main-menu.nav-link-title>{{ __('Пользователи') }}</x-main-menu.nav-link-title>
+            </x-main-menu.nav-link-dropdown>
+            <x-main-menu.dropdown-menu>
+              <x-main-menu.dropdown-item url="/">{{ __('Alerts') }}</x-main-menu.dropdown-item>
+            </x-main-menu.dropdown-menu>
+          </x-main-menu.nav-item-dropdown>
+
+
         </x-main-menu.list>
       </x-container>
     </x-main-menu.navbar>
