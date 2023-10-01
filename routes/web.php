@@ -28,6 +28,7 @@ Route::group(['prefix' => 'auth'], function () {
 
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
     Route::get('/create', [UserController::class, 'create'])->name('users.create');
+    Route::post('/create', [UserController::class, 'store'])->name('users.store');
     Route::get('/branch_admins', [UserController::class, 'branch_admins'])->name('users.branch_admins');
 });
 

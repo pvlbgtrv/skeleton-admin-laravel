@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Role;
 
 class UserController extends Controller
 {
@@ -23,7 +25,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users/create');
+        $roles = Role::all();
+
+        return view('users/create', compact('roles'));
     }
 
     /**
@@ -31,7 +35,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'username' => 'required|alpha_dash:ascii|unique:users|min:3|max:100',
+            'password' => 'required|confirmed|min:8',
+            'role' => 'required|alpha_dash:ascii',
+        ]);
+
+        $user = User::create([
+            'username' => $request->username,
+            'password' => $request->password,
+        ]);
+
+        if($user && $user->assignRole($request->role)) {
+            flash("Пользователь успешно создан<br><br>Имя пользователя: $request->username<br>Пароль: $request->password", 'success');
+        } else {
+            flash("Не удалось создать пользователя", 'danger');
+        }
+
+        return redirect()->route('users.create');
     }
 
     /**
