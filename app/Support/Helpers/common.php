@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Role;
 
 if (!function_exists('flash')) {
     function flash(string $message, string $type = 'success'): void
@@ -18,5 +19,11 @@ if (!function_exists('active_link')) {
         }
         
         return Route::is($name) ? $class : null;
+    }
+}
+
+if (!function_exists('get_role_view_name')) {
+    function get_role_view_name(string $name) {
+        return Role::where('name', $name)->first()->view_name;
     }
 }

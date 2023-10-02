@@ -8,16 +8,27 @@ use App\Models\Role;
 
 class UserController extends Controller
 {
-    public function branch_admins()
-    {
-        return 'branch admins page';
-    }
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(?string $role = null)
     {
-        //
+        $users = [];
+
+        if($role === null) {
+
+            $users = User::orderByDesc('id')->get();
+            $role_view_name = 'Все пользователи';
+
+        } elseif(in_array($role, Role::all()->pluck('name')->toArray())) {
+
+            $users = User::orderByDesc('id')->role($role)->get();
+            $role_view_name = Role::where('name', $role)->first()->view_name;
+        } else {
+            abort(403);
+        }
+
+        return view('users/all', compact('users', 'role_view_name'));
     }
 
     /**
